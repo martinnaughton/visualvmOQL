@@ -1,0 +1,13 @@
+//Hash map that contains more than 8 nodes
+select h from java.util.HashMap h where h.size > 8
+
+//Print the size of every hashmap. It will print them in a list in visualvm
+select count(h) from java.util.HashMap h
+
+//Prints the number of hashmap that have a size bigger than 8. It just prints a number
+select count(heap.objects('java.util.HashMap'),"it.size>8")
+
+//Print the number of hashmaps that have a size of 1
+select count(heap.objects('java.util.HashMap'),"it.size==1")
+
+
