@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/
 public class MapMemory {
 	static short mapSize = 10000;
 
 	public static void main(String[] args) {
 		List<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
 		Map<Integer, String> stringMap = new HashMap<Integer, String>();
-		System.out.println("map size:"+stringMap.size());
 		for (int index = 0; index < mapSize; index+=2) {
 			stringMap.put(index, new String("Cat:" + index));
 			stringMap.put(index+1, new String("Dog:" + index+1));
