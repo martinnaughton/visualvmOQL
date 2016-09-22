@@ -13,7 +13,9 @@ select count(heap.objects('java.util.HashMap'),"it.size>8")
 //Print the number of hashmaps that have a size of 1
 select count(heap.objects('java.util.HashMap'),"it.size==1")
 
-//For each hash map in the heap it will print a json representation like this { size = 1, count 12 }. If you have a 100 hash maps then it will print a 100 of those json representation. Count is always increment when it finds a hashmap of the same size
+//For each hash map in the heap it will print a json representation like this { size = 1, count 12 }. 
+//If you have a 100 hash maps then it will print a 100 of those json representation. 
+//Count is always increment when it finds a hashmap of the same size
 var counts = {};
 map(heap.objects('java.util.HashMap'),
     function(map){
@@ -22,7 +24,8 @@ map(heap.objects('java.util.HashMap'),
     }
 );
 
-//This will add up all the hash maps that have the size and print the size and the count of hashmaps with that size. You can use this in a histogram then.
+//This will add up all the hash maps that have the same size and print the size and the count of hashmaps with that size. 
+//You can use this in a histogram then.
 var counts = {}; 
 filter(
     sort(
@@ -55,7 +58,8 @@ select sum(
 
 Reference
 -----------
-//print all the ancestors of the hashmap. The objects that have references to the hashmap. You can then click on the parent to get more information about it. They will be a links
+//print all the ancestors of the hashmap. The objects that have references to the hashmap. 
+//You can then click on the parent to get more information about it. They will be a links
 select map(heap.objects('java.util.HashMap'),
               function(it){
                  var result = '';
@@ -92,7 +96,10 @@ filter(
 )
 
 
-//Prints the number of objects of type java.lang.Object[] that have references to hashmap and number of objects of type java.lang.Object[] that does not have any reference to hashmap. Arraylist has an internal array Object[]. That has the reference to the hashmap, not ArrayList. 
+//Prints the number of objects of type java.lang.Object[] that have references to hashmap 
+//and number of objects of type java.lang.Object[] that does not have any reference to hashmap. i
+//Arraylist has an internal array Object[]. 
+//That has the reference to the hashmap, not ArrayList. 
 var counts = {}; 
 filter(
        sort(
@@ -114,5 +121,6 @@ filter(
 )
 
 
-//This is to find all the hashmaps that are referenced from an arraylist. An array list has an internal array which is the has the reference to the hashmaps.
+//This is to find all the hashmaps that are referenced from an arraylist. 
+//An array list has an internal array which is the has the reference to the hashmaps.
 select h from java.util.HashMap h where contains(referrers(h),"classof(it).name=='java.lang.Object[]'")
