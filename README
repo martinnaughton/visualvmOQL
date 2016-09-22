@@ -1,4 +1,4 @@
-The jvisual jql for searching your memory dump is done functionally. If you have no experience with functional programming as a java programmer then you need to change your mind set. After a few examples you should see how OQL deals with the information and how it is printed.
+The jvisual OQL language is for searching your memory dump is done functionally. If you have no experience with functional programming as a java programmer then you need to change your mind set. After a few examples you should see how OQL deals with the information and how it is printed.
 
 There are simple memory dumps in the repo to test the OQL examples with. I have included the source code that i used to create these dumps so you can see what information is available to search with OQL. The example queries work with this sample program.
 
