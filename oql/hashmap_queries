@@ -122,5 +122,5 @@ filter(
 
 
 //This is to find all the hashmaps that are referenced from an arraylist. 
-//An array list has an internal array which is the has the reference to the hashmaps.
+//An array list has an internal array which has the reference to the hashmaps.
 select h from java.util.HashMap h where contains(referrers(h),"classof(it).name=='java.lang.Object[]'")
